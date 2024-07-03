@@ -78,3 +78,101 @@ ________________________________________________________________________________
 Real-world analogy: Imagine you have a diary where you jot down important notes. You don't want to change the notes, but you want to have a reference to look them up whenever you need.
 
 React scenario: useRef provides a way to access and persist values between renders without causing re-renders.
+
+_________________________________________________________________________________________________________
+
+## Routing
+npm install react-router-dom
+
+import {Link,NavLink} from 'react-router-dom'
+
+Sure! Here are concise notes on React Routing:
+
+React Routing
+What is React Router?
+React Router: A standard library for routing in React.
+Purpose: Helps in creating and navigating between different URLs in a React application.
+Key Concepts
+Router:
+
+BrowserRouter: Uses HTML5 history API for cleaner URLs.
+HashRouter: Uses hash portion of URL (e.g., example.com/#/home).
+Routes:
+
+Route: Defines a mapping between a URL path and a component.
+jsx
+Copy code
+import { Route } from 'react-router-dom';
+
+<Route path="/home" component={Home} />
+Link:
+
+Link: Creates navigational links.
+jsx
+Copy code
+import { Link } from 'react-router-dom';
+
+<Link to="/home">Home</Link>
+Switch:
+
+Switch: Renders the first matching Route or Redirect in its children.
+jsx
+Copy code
+import { Switch, Route } from 'react-router-dom';
+
+<Switch>
+  <Route path="/home" component={Home} />
+  <Route path="/about" component={About} />
+</Switch>
+Exact:
+
+exact: Ensures that the route only matches if the path is exactly the same.
+jsx
+Copy code
+<Route exact path="/home" component={Home} />
+Redirect:
+
+Redirect: Redirects from one route to another.
+jsx
+Copy code
+import { Redirect } from 'react-router-dom';
+
+<Redirect from="/old-home" to="/home" />
+Example Usage
+jsx
+Copy code
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
+const Home = () => <h2>Home</h2>;
+const About = () => <h2>About</h2>;
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <ul>
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+      </nav>
+
+      <Switch>
+        <Route exact path="/home" component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+Summary
+BrowserRouter and HashRouter: Choose the type of routing.
+Route: Maps URL to component.
+Link: Creates navigable links.
+Switch: Renders the first matching route.
+exact: Matches the exact path.
+Redirect: Redirects from one route to another.
+
+
+_________________________________________________________________________________________________________
