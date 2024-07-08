@@ -5,58 +5,49 @@ import './App.css'
 
 
 function App() {
-  const [show, setShow] = useState(true);
-  const [counter,setconter]=useState(0);
-  const counterr=useRef(null);
-  const [startCounterelemt, setstartCounter] = useState(0);
-  const [stopCouter, setstopCouter] = useState(0);
-  const [resetCounter, setresetCounter] = useState(0);
-
-
-  // const startConter=()=>{
-  //     setInterval(() => {
-  //       console.log(">>");
-  //       setstartCounter((startCounterelemt)=>{startCounterelemt+1});
-  //     }, 1000);
-  // };
-  const startTimer = () => {
-    window.myTimer = setInterval(() => {
-      setTimer((setstartCounter) => setstartCounter + 1);
-    }, 1000);
-  };
-  
-  const stopCouterfunc=()=>{
-    // intervalId=0;
-  };
-  
-  const resetCouterfunc=()=>{
-    // intervalId=0;
-  };
 
 // https://reactchallenges.live/dashboard/overview
+const [input,setInput]=useState("Test");
+const [TaskArray,setTaskArray]=useState([]);
+
+const addtask=(e)=>{
+  e.preventDefault();
+setTaskArray([...TaskArray,input]);
+};
+
+const [value, setvalue] = useState(10);
+
+const setValuer=(value)=>(setvalue(value));
+  
+
   return (
+   
     <>
-    <p>
-      Assignment 1:
-          Description :
-          Implement a button to show/hide the text content
-    </p>
-      <h3>welcome To react challange</h3>
-      <div className="container">
+   <h3>Assignment 1:ToDo App </h3>
+    
+   Add Todays Task: <input type='text' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
+   <button onClick={addtask}>Add </button>
 
-      <button onClick={() => setShow((show) => !show)}> Show / Hide</button>
-      {show ? <h5>Welcome to React Challenges</h5> : null}
+   <div>
+   {TaskArray.map((city, index) => (
+        <li key={index}>{city}</li>
+      ))}
+   </div>
 
+   <h3>Assignment2:Create a Progress Bar that should fill based on the input percentage value. </h3>
+   <div className="App">
+        <h1>Progress bar</h1>
+        {/* <ProgressBar width={val} /> */}
+        <div
+        className="w3-blue"
+        style={{ height: '24px', width: value+"%", backgroundColor: 'red' }}
+      ></div>
 
-      <p>
-      Description :
-        Implement a Stopwatch/timmer as shown below with start ,stop and reset button.
-      </p>
-          {setstartCounter}
-        <button onClick={startConter}>Start</button>
-        <button onClick={stopCouterfunc}>Stop</button>
-        <button onClick={resetCouterfunc}>Reset</button>
-    </div>
+        <form>
+          <label >Input Percentage:</label>
+          <input type="number" value={value} onChange={(e)=>setValuer(e.target.value)} />
+        </form>
+      </div>
     </>
   )
 }
