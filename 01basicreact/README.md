@@ -179,4 +179,25 @@ ________________________________________________________________________________
 
 ### Contex Api
 
-## step 1:
+_________________________________________________________________________________________________________
+
+### Redux toolKit
+
+https://redux-toolkit.js.org/
+
+1) Redux
+2) React-Redux
+
+- facebook design architecture design is by flux [data flow]
+- Redux 
+- Redux-toolkit
+-                                  
+                              Store
+
+                              Reducer
+
+                    useSelactor     useDispatch
+
+steps 1 configured store
+
+![alt text](image.png)
